@@ -28,5 +28,5 @@ ok. this seems to be enough explanatory story for the lorry. now to get truckin.
 
 may your best of wishes come true! 
 
-mysteradio NV.2022.03.20.1917
+mysteradio USA.NV.2022.03.20.1917
 
