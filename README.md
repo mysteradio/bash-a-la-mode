@@ -5,7 +5,7 @@ hello and welcome :) these are my personal scripts, ones i use on every BASHy ma
 
 PLEASE NOTE:
 
-*--------------------------------------------------------------------------------------------------------------------------------
+* -------------------------------------------------------------------------------------------------------------------------------
 
 * some of these scripts are for laptops (like toff, 'touchpad off')
 * some are very personal (like tara, which i use to display a Buddhist image in full screen)
@@ -18,8 +18,7 @@ PLEASE NOTE:
 * >> list -- list contents of working directory using ls -Xlh --color. can pass 'all' as an argument to show hidden files, too.
 * >> mp3 -- download the audio from a youtube video as an mp3 using youtube-dl with option to rename the file in one fell swoop.
 * >> duck -- open duckduckgo search page in lynx (hopefully i'll learn how to pass a string to the script with a search query!)
-* 
-*--------------------------------------------------------------------------------------------------------------------------------
+* -------------------------------------------------------------------------------------------------------------------------------
 
 bashketball is my BASH study directory. nothing much to see there.
 
