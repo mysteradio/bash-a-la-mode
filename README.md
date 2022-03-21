@@ -1,9 +1,11 @@
 # bash-a-la-mode
 a collection of BASH scripts that make my CLI life a little easier
 
-hello and welcome :) these are my personal scripts, ones i use on every BASHy machine i get my hands on. i hope to use GIT to keep all my computers up to speed on my shenanigans, so to speak. 
+hello and welcome :) these are my personal scripts, ones i use on every BASHy machine i get my hands on. i hope to use git to keep all my computers up to speed on my shenanigans, so to speak. 
 
 (by way of dipping my toes into git, i am adding this line via vim in my terminal. 2022.03.20.2048)
+
+Success is such sweet soda.
 
 
 PLEASE NOTE:
