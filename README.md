@@ -1,5 +1,5 @@
 # bash-a-la-mode
-a collection of scripts that make my CLI life a little easier on BASH 
+a collection of BASH scripts that make my CLI life a little easier
 
 hello and welcome :) these are my personal scripts, ones i use on every BASHy machine i get my hands on. i hope to use GIT to keep all my computers up to speed on my shenanigans, so to speak. 
 
