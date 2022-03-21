@@ -8,15 +8,10 @@ PLEASE NOTE:
 *--------------------------------------------------------------------------------------------------------------------------------
 
 * some of these scripts are for laptops (like toff, 'touchpad off')
-* 
 * some are very personal (like tara, which i use to display a Buddhist image in full screen)
-* 
 * some are only for my machine(s) (like tank, which i use to mount a partition of my hdd)
-* 
 * some are works in progress (aren't we all?)
-* 
 * and some are just seedlings that are unlikely to sprout into anything particularly fruitful BUT . . .
-* 
 * SOME OF THESE SCRIPTS MAY BE USEFUL TO OTHERS! i'll keep a list of them below for the curious:
 * 
 * >> template -- i think it's a good template for a BASH script, i think.
