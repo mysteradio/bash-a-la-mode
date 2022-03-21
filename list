@@ -1,0 +1,105 @@
+#///////////////////////////////////////////////////////////////////////
+#!/bin/bash
+#///////////////////////////////////////////////////////////////////////
+#-----------------------------------------------------------------------
+#
+# list — mnemonic implementation of ls for quick listing action
+#         (all lists are long and sorted by extension or time)
+#  
+#-----------------------------------------------------------------------
+#///////////////////////////////////////////////////////////////////////
+# PATH AND NAME FOR FRIENDLY USE
+#///////////////////////////////////////////////////////////////////////
+#-----------------------------------------------------------------------
+_path=$0
+_name="${_path##*/}"
+#-----------------------------------------------------------------------
+#///////////////////////////////////////////////////////////////////////
+# FUNCTIONS
+#///////////////////////////////////////////////////////////////////////
+#-----------------------------------------------------------------------
+#fxn() {
+
+  # this script has no functions
+
+#}
+#-----------------------------------------------------------------------
+#///////////////////////////////////////////////////////////////////////
+# INTERNAL AFFAIRS
+#///////////////////////////////////////////////////////////////////////
+#-----------------------------------------------------------------------
+
+if [ $BASH_SOURCE = "$_path" ] ; then  # script called directly
+
+  if [[ $# -eq 0 ]] ; then # by extension
+
+    ls -Xlh --color
+    exit 0
+  fi
+
+  if [[ "$1" = "all" ]] ; then # all files, by extension
+                                
+    ls -AXlh --color
+    exit 0
+  fi
+
+  if [[ "$1" = "time" ]] ; then # by time
+
+    ls -lch --color
+    exit 0
+  fi
+
+  if [[ "$1" = "eat" ]] ; then # all files, by time
+	                        
+    ls -Alch --color
+    exit 0
+  fi
+
+  if [[ "$1" = "thor" ]] ; then # thorough, by extension
+                                
+    ls -RXlh --color
+    exit 0
+  fi                         
+
+  if [[ "$1" = "thar" ]] ; then # thorough, all files, by extension
+                                
+    ls -ARXlh --color
+    exit 0
+  fi
+
+  if [[ "$1" = "loki" ]] ; then # thorough, by time
+                                
+    ls -Rlch --color
+    exit 0
+  fi
+
+  if [[ "$1" = "laki" ]] ; then # thorough, all files, by time
+	                        
+    ls -ARlch --color
+    exit 0
+  fi
+
+  echo >&2
+  echo TO LIST CONTENTS OF WORKING DIRECTORY:
+  echo 
+  echo $_name "    "  — by extension
+  echo $_name all" "  — all files, by extension
+  echo $_name time — by time
+  echo $_name eat" " — all files, by time
+  echo $_name thor — thorough, by extension
+  echo $_name thar — thorough, all files, by extension
+  echo $_name loki — thorough, by time
+  echo $_name laki — thorough, all files, by time
+  echo
+  exit 1
+
+fi
+
+#-----------------------------------------------------------------------
+#///////////////////////////////////////////////////////////////////////
+# END OF list — 220120.1400
+#      update — 220201.2156 — added 'h' to all flags cuz duh
+#      update — 220212.0200 — replaced 'a' with 'A' cuz for sure
+#                             and added color cuz come on
+#      update — 220212.1123 — replaced 't' with 'c' cuz it's better
+#///////////////////////////////////////////////////////////////////////
