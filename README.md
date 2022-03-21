@@ -20,13 +20,13 @@ PLEASE NOTE:
 * >> duck -- open duckduckgo search page in lynx (hopefully i'll learn how to pass a string to the script with a search query!)
 * -------------------------------------------------------------------------------------------------------------------------------
 
-bashketball is my BASH study directory. nothing much to see there.
+'bashketball' is my BASH study directory. nothing much to see there.
 
-inactive is where i'll move scripts that i longer use but that i don't want to delete yet for whatever reason.
+the 'inactive' directory is where i'll move scripts that i longer use but that i don't want to delete yet for whatever reason.
 
-ok. this seems to be enough explanatory story for the lorry. get truckin.
+ok. this seems to be enough explanatory story for the lorry. now to get truckin.
 
-thanks! may your best of wishes come true! 
+may your best of wishes come true! 
 
 mysteradio NV.2022.03.20.1917
 
