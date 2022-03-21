@@ -3,7 +3,7 @@ update each script description to list what other programs/scripts are needed to
 POLO! figure out how to pull correctly! i'm making git angry. catch the lorry.
 DONE: git pull sshkey (still complains about not specifying how to reconcile divergent branches)
 
-$ git pull git@github.com:mysteradio/bash-a-la-mode.git
+$ git pull zheKEY!
 hint: Pulling without specifying how to reconcile divergent branches is
 hint: discouraged. You can squelch this message by running one of the following
 hint: commands sometime before your next pull:
