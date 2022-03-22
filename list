@@ -3,7 +3,7 @@
 #///////////////////////////////////////////////////////////////////////
 #-----------------------------------------------------------------------
 #
-# list — mnemonic implementation of ls for quick listing action
+# list — mnemonic use of ls for a more human-friendly experience(?)
 #         (all lists are long and sorted by extension or time)
 #  
 #-----------------------------------------------------------------------
@@ -31,57 +31,171 @@ _name="${_path##*/}"
 
 if [ $BASH_SOURCE = "$_path" ] ; then  # script called directly
 
-  if [[ $# -eq 0 ]] ; then # by extension
+# Here we furnish vanilla list action
+
+  if [[ $# -eq 0 ]] ; then # list working directory by extension
 
     ls -Xlh --color
     exit 0
   fi
 
-  if [[ "$1" = "all" ]] ; then # all files, by extension
+  if [[ "$1" = /* ]] ; then # list specified directory by extension
+                            # absolute path
+    ls -Xlh --color $1
+    exit 0
+  
+  elif [[ "$1" = :* ]] ; then # list specified directory by extenion
+                              # relative path
+    ls -Xlh --color ${1#?}
+    exit 0
+  fi
+
+# Here we check for options: all, time, eat, thor, thar, loki, laki
+
+#--->          .....
+  if [[ "$1" = "all" ]] ; then # list all files by extension
+
+    if [[ "$2" = /* ]] ; then # specified directory, absolute path
+      
+      ls -AXlh --color $2
+      exit 0
+    
+    elif [[ "$2" = :* ]] ; then # specified directory, relative path
+
+      ls -AXlh --color ${2#?}
+      exit 0
+
+    else # working directory
                                 
-    ls -AXlh --color
-    exit 0
+      ls -AXlh --color
+      exit 0
+    fi
   fi
+#--->          ......
+  if [[ "$1" = "time" ]] ; then # list by time
 
-  if [[ "$1" = "time" ]] ; then # by time
+    if [[ "$2" = /* ]] ; then # specified directory, absolute path
+      
+      ls -lch --color $2
+      exit 0
+    
+    elif [[ "$2" = :* ]] ; then # specified directory, relative path
 
-    ls -lch --color
-    exit 0
+      ls -lch --color ${2#?}
+      exit 0
+
+    else # working directory
+
+      ls -lch --color 
+      exit 0
+    fi
   fi
+#--->          .....
+  if [[ "$1" = "eat" ]] ; then # list all files by time
+                               # "Here I'm allowed
+	                       #  e_verything a_ll of the t_ime" 
+	                       # -Radiohead
 
-  if [[ "$1" = "eat" ]] ; then # all files, by time
-	                        
-    ls -Alch --color
-    exit 0
-  fi
+    if [[ "$2" = /* ]] ; then # specified directory, absolute path
+      
+      ls -Alch --color $2
+      exit 0
+    
+    elif [[ "$2" = :* ]] ; then # specified directory, relative path
 
-  if [[ "$1" = "thor" ]] ; then # thorough, by extension
+      ls -Alch --color ${2#?}
+      exit 0
+
+    else # working directory
                                 
-    ls -RXlh --color
-    exit 0
+      ls -Alch --color
+      exit 0
+    fi
+  fi
+#--->          ......
+  if [[ "$1" = "thor" ]] ; then # list thoroughly, by extension
+ 
+    if [[ "$2" = /* ]] ; then # specified directory, absolute path
+      
+      ls -RXlh --color $2
+      exit 0
+    
+    elif [[ "$2" = :* ]] ; then # specified directory, relative path
+
+      ls -RXlh --color ${2#?}
+      exit 0
+
+    else # working directory
+                                
+      ls -RXlh --color
+      exit 0
+    fi
   fi                         
+#--->          ......
+  if [[ "$1" = "thar" ]] ; then # list thoroughly, all files, by extension
+ 
+    if [[ "$2" = /* ]] ; then # specified directory, absolute path
+      
+      ls -ARXlh --color $2
+      exit 0
+    
+    elif [[ "$2" = :* ]] ; then # specified directory, relative path
 
-  if [[ "$1" = "thar" ]] ; then # thorough, all files, by extension
+      ls -ARXlh --color ${2#?}
+      exit 0
+
+    else # working directory
                                 
-    ls -ARXlh --color
-    exit 0
+      ls -ARXlh --color
+      exit 0
+    fi
   fi
+#--->          ......
+  if [[ "$1" = "loki" ]] ; then # list thoroughly, by time
 
-  if [[ "$1" = "loki" ]] ; then # thorough, by time
+    if [[ "$2" = /* ]] ; then # specified directory, absolute path
+      
+      ls -Rlch --color $2
+      exit 0
+    
+    elif [[ "$2" = :* ]] ; then # specified directory, relative path
+
+      ls -Rlch --color ${2#?}
+      exit 0
+
+    else # working directory
                                 
-    ls -Rlch --color
-    exit 0
+      ls -Rlch --color
+      exit 0
+    fi
   fi
+#--->          ......
+  if [[ "$1" = "laki" ]] ; then # list thoroughly, all files, by time
 
-  if [[ "$1" = "laki" ]] ; then # thorough, all files, by time
-	                        
-    ls -ARlch --color
-    exit 0
+    if [[ "$2" = /* ]] ; then # specified directory, absolute path
+      
+      ls -ARlch --color $2
+      exit 0
+    
+    elif [[ "$2" = :* ]] ; then # specified directory, relative path
+
+      ls -ARlch --color ${2#?}
+      exit 0
+
+    else # working directory
+                                
+      ls -ARlch --color
+      exit 0
+    fi
   fi
+#---^
+
+# Here we offer guidance to the wanderers
 
   echo >&2
+  echo
   echo TO LIST CONTENTS OF WORKING DIRECTORY:
-  echo 
+  echo
   echo $_name "    "  — by extension
   echo $_name all" "  — all files, by extension
   echo $_name time — by time
@@ -91,6 +205,21 @@ if [ $BASH_SOURCE = "$_path" ] ; then  # script called directly
   echo $_name loki — thorough, by time
   echo $_name laki — thorough, all files, by time
   echo
+  echo YOU CAN PASS AN ABSOLUTE PATH
+  echo WITH OR WITHOUT AN OPTION.
+  echo
+  echo Pass the absolute path with proper forward slash.
+  echo Example — list /etc/default
+  echo Example — list eat /run
+  echo
+  echo YOU CAN ALSO PASS A RELATIVE PATH
+  echo WITH OR WITHOUT AN OPTION.
+  echo
+  echo Pass the relative path prefixed with a colon.
+  echo Example — list :Documents
+  echo Example — list thor :Pictures 
+  echo
+
   exit 1
 
 fi
@@ -102,4 +231,7 @@ fi
 #      update — 220212.0200 — replaced 'a' with 'A' cuz for sure
 #                             and added color cuz come on
 #      update — 220212.1123 — replaced 't' with 'c' cuz it's better
+#      update — 220321.1846 — now we can list contents beyond wd!
+#                             what with the ${1#?} and ${2#?}
+#      update — 220321.2129 — simplified and expanded the preceding
 #///////////////////////////////////////////////////////////////////////
