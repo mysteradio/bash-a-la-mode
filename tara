@@ -30,7 +30,7 @@ _name="${_path##*/}"
 
 if [ $BASH_SOURCE = "$_path" ] ; then  # script called directly
 
-  mirage -f /home/$(whoami)/scripts/images/tara/greentara.jpg
+  mirage -f /home/$(whoami)/scripts/bash-a-la-mode/images/tara/greentara.jpg
 
 fi
 
