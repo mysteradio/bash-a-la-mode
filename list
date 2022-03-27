@@ -69,17 +69,17 @@ if [ $BASH_SOURCE = "$_path" ] ; then  # script called directly
 
     if [[ "$2" = /* ]] ; then # specified directory, absolute path
       
-      ls -lh --time=creation --color $2
+      ls -lh --time=access --color $2
       exit 0
     
     elif [[ "$2" = :* ]] ; then # specified directory, relative path
 
-      ls -lh --time=creation --color ${2#?}
+      ls -lh --time=access --color ${2#?}
       exit 0
 
     else # working directory
 
-      ls -lh --time=creation --color 
+      ls -lh --time=access --color 
       exit 0
     fi
   fi
@@ -91,17 +91,17 @@ if [ $BASH_SOURCE = "$_path" ] ; then  # script called directly
 
     if [[ "$2" = /* ]] ; then # specified directory, absolute path
       
-      ls -Alh --time=creation --color $2
+      ls -Alh --time=access --color $2
       exit 0
     
     elif [[ "$2" = :* ]] ; then # specified directory, relative path
 
-      ls -Alh --time=creation --color ${2#?}
+      ls -Alh --time=access --color ${2#?}
       exit 0
 
     else # working directory
                                 
-      ls -Alh --time=creation --color
+      ls -Alh --time=access --color
       exit 0
     fi
   fi
@@ -148,17 +148,17 @@ if [ $BASH_SOURCE = "$_path" ] ; then  # script called directly
 
     if [[ "$2" = /* ]] ; then # specified directory, absolute path
       
-      ls -Rlh --time=creation --color $2
+      ls -Rlh --time=access --color $2
       exit 0
     
     elif [[ "$2" = :* ]] ; then # specified directory, relative path
 
-      ls -Rlh --time=creation --color ${2#?}
+      ls -Rlh --time=access --color ${2#?}
       exit 0
 
     else # working directory
                                 
-      ls -Rlh --time=creation --color
+      ls -Rlh --time=access --color
       exit 0
     fi
   fi
@@ -167,17 +167,17 @@ if [ $BASH_SOURCE = "$_path" ] ; then  # script called directly
 
     if [[ "$2" = /* ]] ; then # specified directory, absolute path
       
-      ls -ARlh --time=creation --color $2
+      ls -ARlh --time=access --color $2
       exit 0
     
     elif [[ "$2" = :* ]] ; then # specified directory, relative path
 
-      ls -ARlh --time=creation --color ${2#?}
+      ls -ARlh --time=access --color ${2#?}
       exit 0
 
     else # working directory
                                 
-      ls -ARlh --time=birth --color
+      ls -ARlh --time=access --color
       exit 0
     fi
   fi
@@ -201,9 +201,9 @@ if [ $BASH_SOURCE = "$_path" ] ; then  # script called directly
   echo YOU CAN PASS AN ABSOLUTE PATH
   echo WITH OR WITHOUT AN OPTION.
   echo
-  echo Don't forget the leading forward slash:
-  echo Example — list /etc
-  echo Example — list eat /run
+  echo Note — tilde expansion produces an absolute path:
+  echo Example — list /
+  echo Example — list thor ~
   echo
   echo YOU CAN ALSO PASS A RELATIVE PATH
   echo WITH OR WITHOUT AN OPTION.

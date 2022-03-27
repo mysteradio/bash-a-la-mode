@@ -26,7 +26,7 @@ _name="${_path##*/}"
 if [ $BASH_SOURCE = "$_path" ] ; then  # script called directly
   
   echo
-  cat /home/$(whoami)/.dudo | grep -A 1 POLO!
+  cat /home/$(whoami)/.dudo | grep POLO!
   exit 0
 
 fi
