@@ -25,7 +25,7 @@ _name="${_path##*/}"
 if [ $BASH_SOURCE = "$_path" ] ; then  # script called directly
   
   echo
-  cat /home/$(whoami)/.joueurnull/* | grep HEED!
+  cat /home/$(whoami)/.joueurnull/* | grep -A 1 HEED!
   echo  
   exit 0
 
