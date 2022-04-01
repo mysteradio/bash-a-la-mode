@@ -69,17 +69,17 @@ if [ $BASH_SOURCE = "$_path" ] ; then  # script called directly
 
     if [[ "$2" = /* ]] ; then # specified directory, absolute path
       
-      ls -lh --time=access --color $2
+      ls -lhtr --color $2
       exit 0
     
     elif [[ "$2" = :* ]] ; then # specified directory, relative path
 
-      ls -lh --time=access --color ${2#?}
+      ls -lhtr --color ${2#?}
       exit 0
 
     else # working directory
 
-      ls -lh --time=access --color 
+      ls -lhtr --color 
       exit 0
     fi
   fi
@@ -91,17 +91,17 @@ if [ $BASH_SOURCE = "$_path" ] ; then  # script called directly
 
     if [[ "$2" = /* ]] ; then # specified directory, absolute path
       
-      ls -Alh --time=access --color $2
+      ls -Alhtr --color $2
       exit 0
     
     elif [[ "$2" = :* ]] ; then # specified directory, relative path
 
-      ls -Alh --time=access --color ${2#?}
+      ls -Alhtr --color ${2#?}
       exit 0
 
     else # working directory
                                 
-      ls -Alh --time=access --color
+      ls -Alhtr --color
       exit 0
     fi
   fi
@@ -148,17 +148,17 @@ if [ $BASH_SOURCE = "$_path" ] ; then  # script called directly
 
     if [[ "$2" = /* ]] ; then # specified directory, absolute path
       
-      ls -Rlh --time=access --color $2
+      ls -Rlhtr --color $2
       exit 0
     
     elif [[ "$2" = :* ]] ; then # specified directory, relative path
 
-      ls -Rlh --time=access --color ${2#?}
+      ls -Rlhtr --color ${2#?}
       exit 0
 
     else # working directory
                                 
-      ls -Rlh --time=access --color
+      ls -Rlhtr --color
       exit 0
     fi
   fi
@@ -167,17 +167,17 @@ if [ $BASH_SOURCE = "$_path" ] ; then  # script called directly
 
     if [[ "$2" = /* ]] ; then # specified directory, absolute path
       
-      ls -ARlh --time=access --color $2
+      ls -ARlhtr --color $2
       exit 0
     
     elif [[ "$2" = :* ]] ; then # specified directory, relative path
 
-      ls -ARlh --time=access --color ${2#?}
+      ls -ARlhtr --color ${2#?}
       exit 0
 
     else # working directory
                                 
-      ls -ARlh --time=access --color
+      ls -ARlhtr --color
       exit 0
     fi
   fi
@@ -226,4 +226,5 @@ fi
 #      update — 220321.1846 — now we can list contents beyond wd!
 #                             what with the ${1#?} and ${2#?}
 #      update — 220321.2129 — simplified and expanded the preceding
+#      update — 220331.1756 — c ~> time=access ~> r
 #///////////////////////////////////////////////////////////////////////
