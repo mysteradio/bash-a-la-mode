@@ -2,7 +2,8 @@
 #!/bin/bash
 #######################################################################
 #
-# kim — fetches HEED! lines from files in ~/.joueurnull directory.
+# kim — fetches HEED! and PINE! lines 
+#       from files in ~/.joueurnull
 #
 #//////////////////////////////////////////////////////////////////////
 # PATH AND NAME FOR FRIENDLY USE
@@ -32,5 +33,6 @@ if [ $BASH_SOURCE = "$_path" ] ; then  # script called directly
 fi
 
 #//////////////////////////////////////////////////////////////////////
-# END OF paymo — 220325.1846
+# END OF kim — 220325.1846
+#     update — 220403.2050 — added PINE! fetches
 #//////////////////////////////////////////////////////////////////////
