@@ -30,11 +30,13 @@ _name="${_path##*/}"
 
 if [ $BASH_SOURCE = "$_path" ] ; then  # script called directly
 
-  ddgr -w www.thefreedictionary.com $1
+  ddgr -w www.thefreedictionary.com $1 | head -2
 
 fi
 
 #-----------------------------------------------------------------------
 #///////////////////////////////////////////////////////////////////////
-# END OF dic (it ain't much, but it's honest work) — 220124.1501
+# END OF dic — 220124.1501
+#     update — 220406.1110 — pipe through head
+# (it ain't much, but it's honest work)
 #///////////////////////////////////////////////////////////////////////
