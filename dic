@@ -30,7 +30,15 @@ _name="${_path##*/}"
 
 if [ $BASH_SOURCE = "$_path" ] ; then  # script called directly
 
-  ddgr -w www.thefreedictionary.com $1 | head -2
+  echo
+  echo type q and «enter» to quit
+  echo or type a new word and «enter» to search again
+  echo
+
+#  ddgr -w www.thefreedictionary.com $1 | head -2 | cut -d'1' -f 2-
+  
+  ddgr -w www.thefreedictionary.com $1 | head -2 | tail -1
+  exit 0
 
 fi
 
@@ -38,5 +46,6 @@ fi
 #///////////////////////////////////////////////////////////////////////
 # END OF dic — 220124.1501
 #     update — 220406.1110 — pipe through head
+#     update — 220414.1550 — added an explanatory preface
 # (it ain't much, but it's honest work)
 #///////////////////////////////////////////////////////////////////////

@@ -30,6 +30,7 @@ if [ $BASH_SOURCE = "$_path" ] ; then  # script called directly
 
   if [ $# -eq 0 ] ; then # git it done with the default message
 
+    git status
     git add .
     git commit -m mesg
     git push
@@ -39,6 +40,7 @@ if [ $BASH_SOURCE = "$_path" ] ; then  # script called directly
 
     mesg=\"$1\"
 
+    git status
     git add .
     git commit -m mesg
     git push
