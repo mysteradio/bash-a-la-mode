@@ -2,7 +2,8 @@
 #!/bin/bash
 #######################################################################
 #
-# template — inspired by Barry Soroka
+# gitme — a quick script to run git add, git commit, git push
+#         in one fell swhoopi goldberg
 #
 #≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈
 # PATH AND NAME FOR FRIENDLY USE
@@ -24,14 +25,41 @@ _name="${_path##*/}"
 #≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈
 
 if [ $BASH_SOURCE = "$_path" ] ; then  # script called directly
- 
+
+  mesg="Nothing worth noting."
+
+  if [ $# -eq 0 ] ; then # git it done with the default message
+
+    git add .
+    git commit -m mesg
+    git push
+    exit 0
+  
+  elif [ $# -eq 1 ] ; then # git it done with the user message
+
+    mesg=\"$1\"
+
+    git add .
+    git commit -m mesg
+    git push
+    exit 0
+
+  fi
+
+  echo >&2
   echo
-  echo Have yourself a merry, little scriptmas! Let your bash be light!
+  echo PLEASE NOTE:
   echo
-  exit 0
+  echo gitme works without arguments or with one argument.
+  echo the passed argument will be used as the message in
+  echo the git commit command. please enclose your message
+  echo in double quotes.
+  echo
+
+  exit 1
 
 fi
 
 #######################################################################
-# END OF std — 220414.1442
+# END OF gitme — 220414.1537
 #######################################################################

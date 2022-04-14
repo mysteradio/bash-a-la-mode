@@ -24,10 +24,31 @@ _name="${_path##*/}"
 #≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈
 
 if [ $BASH_SOURCE = "$_path" ] ; then  # script called directly
- 
+
+  mesg="hey! banana!"
+
   echo
-  echo Have yourself a merry, little scriptmas! Let your bash be light!
+  echo mesg:
+  echo $mesg
+  
+  mesg=\"$mesg\"
+
   echo
+  echo quoted mesg:
+  echo $mesg
+
+  echo
+  echo you passed: 
+  echo $1
+
+  mesg=\"$1\"
+  
+  echo
+  echo quoted pass:
+  echo $mesg
+
+  echo
+
   exit 0
 
 fi
