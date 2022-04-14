@@ -26,12 +26,12 @@ _name="${_path##*/}"
 if [ $BASH_SOURCE = "$_path" ] ; then  # script called directly
  
   echo
-  echo Have yourself a merry, little scriptmas! Let your bash be light!
+  echo Have yourself a merry, little scriptmas!
   echo
   exit 0
 
 fi
 
 #######################################################################
-# END OF std — 220414.1442
+# END OF template — 220414.1442
 #######################################################################
