@@ -1,0 +1,50 @@
+#######################################################################
+#!/bin/bash
+#######################################################################
+#
+# foomatto — incipiently, this script houses the sorokaDate function
+#            to format and return the date in Barry Soroka style
+#
+#            going forward, this script will store all formatting
+#            jeitinhos that i wish to make use of
+#
+#            the name is derived from the Japanese word フォーマット
+#            and is pronounced however you please
+#
+#≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈
+# PATH AND NAME FOR FRIENDLY USE
+#≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈
+
+_path=$0
+_name="${_path##*/}"
+
+#≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈
+# FUNCTIONS
+#≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈
+
+#——————————————————————————————————————————————————————————————————————
+sorokaDate() { 
+
+  d=$(date +%F) # date formate YYYY-MM-DD
+  d=${d:2}      # remove the first two characters
+  d=${d//-/}    # removes hyphens. // searches for all instances of -
+                # and / followed by nothing effectively removes them
+  echo $d
+}
+#——————————————————————————————————————————————————————————————————————
+
+#≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈
+# INTERNAL AFFAIRS
+#≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈
+
+if [ $BASH_SOURCE = "$_path" ] ; then  # script called directly
+ 
+  theDate=$(sorokaDate)
+  echo $theDate
+  exit 0
+
+fi
+
+#######################################################################
+# END OF foomatto — 220424.2243 — only sorokaDate function
+#######################################################################
