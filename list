@@ -203,7 +203,7 @@ if [ $BASH_SOURCE = "$_path" ] ; then  # script called directly
   echo
   echo Note — tilde expansion produces an absolute path:
   echo Example — list /
-  echo Example — list thor ~
+  echo Example — list thor \~
   echo
   echo YOU CAN ALSO PASS A RELATIVE PATH
   echo WITH OR WITHOUT AN OPTION.

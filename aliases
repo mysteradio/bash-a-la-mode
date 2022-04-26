@@ -1,0 +1,9 @@
+alias busy="source ~/.bashrc"
+
+alias lsit="list"
+
+alias viddy="youtube-dl --format "bestvideo+bestaudio[ext=m4a]/bestvideo+bestaudio/best" \
+  --merge-output-format mp4"
+
+alias widdy="youtube-dl --format worst --merge-output-format mp4"
+

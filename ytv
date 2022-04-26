@@ -1,0 +1,113 @@
+#######################################################################
+#!/bin/bash
+#######################################################################
+#
+# ytv — use ytfzf and youtube-dl to search for and download videos
+#
+#≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈
+# PATH AND NAME FOR FRIENDLY USE
+#≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈
+
+_path=$0
+_name="${_path##*/}"
+
+#≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈
+# FUNCTIONS
+#≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈
+
+source $HOME/bash-a-la-mode/foomatto # to use the 'suso' function
+
+#——————————————————————————————————————————————————————————————————————
+# nope () { echo THIS SCRIPT HAS NO FUNCTIONS! }
+#——————————————————————————————————————————————————————————————————————
+
+#≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈
+# INTERNAL AFFAIRS
+#≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈
+
+if [ $BASH_SOURCE = "$_path" ] ; then  # script called directly
+
+    # lttp.txt name meaning: "link to the past"
+    # cuz all videos are of the past, duh
+
+  echo >> lttp.txt
+  echo ——————————————————————————————————————————————————— >> lttp.txt 
+  echo $(suso) >> lttp.txt  # date and time
+  whoami >> lttp.txt        # user 
+  pwd >> lttp.txt           # directory
+  echo ——————————————————————————————————————————————————— >> lttp.txt 
+  echo >> lttp.txt
+
+  echo Enter Youtube search terms below:
+
+    # store the link of the chosen video in lttp.txt
+
+  ytfzf -L  >> lttp.txt # -L is an alias for -I link
+  
+    # read that same link into $aLinkToThePast
+
+  read -r aLinkToThePast < <(tail -n1 lttp.txt) # last line of lttp.txt
+
+    # ask youtube-dl to download $aLinkToThePast as mp4
+    # youtube-dl will do so if possible, other formats may be produced
+
+#--->
+  if [[ "$1" = "best" ]] ; then # download the best quality video
+
+    youtube-dl --format "bestvideo+bestaudio[ext=m4a]/bestvideo+bestaudio/best" \
+    --merge-output-format mp4 "$aLinkToThePast"
+    
+    echo DOWNLOADED: $(ls -c | head -n1) >> lttp.txt
+    echo
+    echo Video downloaded to $(pwd)
+    echo
+
+    exit 0
+  fi
+#--->
+  if [[ "$1" = "worst" ]] ; then # download the worst quality video
+
+    youtube-dl --format worst --merge-output-format mp4 "$aLinkToThePast"
+
+    echo DOWNLOADED: $(ls -c | head -n1) >> lttp.txt
+    echo
+    echo Video downloaded to $(pwd)
+    echo
+
+    exit 0
+  fi
+#--->
+  if [[ $# -eq 0 ]] ; then # DEFAULT, download the worst quality video
+
+    youtube-dl --format worst --merge-output-format mp4 "$aLinkToThePast"
+
+    echo DOWNLOADED: $(ls -c | head -n1) >> lttp.txt
+    echo
+    echo Video downloaded to $(pwd)
+    echo
+
+    exit 0
+  fi
+#--->
+  if [[ $# -gt 0 ]] ; then # DEFAULT, bad argument(s) 
+
+    youtube-dl --format worst --merge-output-format mp4 "$aLinkToThePast"
+    
+    echo DOWNLOADED: $(ls -c | head -n1) >> lttp.txt
+    echo
+    echo Video downloaded to $(pwd)
+    echo
+  
+    exit 0
+  fi
+#---^
+
+  echo >&2
+  echo IDK HOW YA GOT HERE BUT IT IS BAD NEWS.
+  exit 1
+
+fi
+
+#######################################################################
+# END OF ytv — 220424.2036
+#######################################################################

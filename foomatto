@@ -2,14 +2,10 @@
 #!/bin/bash
 #######################################################################
 #
-# foomatto — incipiently, this script houses the sorokaDate function
-#            to format and return the date in Barry Soroka style
-#
-#            going forward, this script will store all formatting
-#            jeitinhos that i wish to make use of
+# foomatto — this script stores my formatting jeitinhos
 #
 #            the name is derived from the Japanese word フォーマット
-#            and is pronounced however you please
+#            and is pronounced however you please. Italian perhaps :?)
 #
 #≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈
 # PATH AND NAME FOR FRIENDLY USE
@@ -23,28 +19,36 @@ _name="${_path##*/}"
 #≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈
 
 #——————————————————————————————————————————————————————————————————————
-sorokaDate() { 
+today() { # Soroka style date, YYMMDD
 
-  d=$(date +%F) # date formate YYYY-MM-DD
-  d=${d:2}      # remove the first two characters
+  d=$(date +%F) # date format YYYY-MM-DD
+  d=${d:2}      # remove the first two characters, YY-MM-DD
   d=${d//-/}    # removes hyphens. // searches for all instances of -
                 # and / followed by nothing effectively removes them
   echo $d
 }
 #——————————————————————————————————————————————————————————————————————
+thisminute() {
 
+  echo $(date +%H%M)
+}
+#——————————————————————————————————————————————————————————————————————
+suso() { # Super Soroka
+
+  echo $(today).$(thisminute)
+}
 #≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈
 # INTERNAL AFFAIRS
 #≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈≈
 
 if [ $BASH_SOURCE = "$_path" ] ; then  # script called directly
  
-  theDate=$(sorokaDate)
-  echo $theDate
+  echo The date and time is $(suso)
   exit 0
 
 fi
 
 #######################################################################
-# END OF foomatto — 220424.2243 — only sorokaDate function
+# END OF foomatto — 220424.2243 — only today function
+#          update — 220425.1844 — added thisminute and suso
 #######################################################################

@@ -1,4 +1,0 @@
-
-export PATH="~/bash-a-la-mode:$PATH"
-export PATH="~/bash-a-la-mode/bashketball:$PATH"
-
