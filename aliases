@@ -6,4 +6,3 @@ alias viddy="youtube-dl --format "bestvideo+bestaudio[ext=m4a]/bestvideo+bestaud
   --merge-output-format mp4"
 
 alias widdy="youtube-dl --format worst --merge-output-format mp4"
-
